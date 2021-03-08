@@ -1,13 +1,18 @@
 *****************************************************************************************************************************************************************************************
 *****************************************************************************************************************************************************************************************
 ------------------------------create new user---------------------------------------------------------------------------
-mysql>CREATE USER 'newuser'@'myhost.example.com' IDENTIFIED BY 'yourpassword';
-mysql>GRANT ALL ON databasename.* TO 'newuser'@'myhost.example.com';
-mysql>REVOKE * ON databasename.* FROM 'newuser'@'myhost.example.com';
+1.mysql>CREATE USER 'newuser'@'myhost.example.com' IDENTIFIED BY 'yourpassword';
+	ex:create user 'user1@mail.com' identified by '876543';
+
+2.mysql>GRANT ALL ON databasename.* TO 'newuser'@'myhost.example.com';
+
+3.mysql>REVOKE * ON databasename.* FROM 'newuser'@'myhost.example.com';
 ________________________________________________________________________________________________________________________
 
 -----------------------------login for new user-------------------------------------------------------------------------
-mysql>%mysql -h localhost -u newuser -p
+c:programme files\mysql\mysql server 5.0\bin>%mysql -h localhost -u newuser -p 
+							or 
+			""mysql server 5.0\bin>mysql -u username -p""
 mysql> Enter password: yourpassword
 ________________________________________________________________________________________________________________________
 
@@ -40,8 +45,9 @@ ex: INSERT INTO thirdyrstudent SELECT name,contact,address FROM secondyrstudent;
 ________________________________________________________________________________________________________________________
 -----------------------------alter command on table---------------------------------------------------------------------
 mysql>ALTER TABLE tablename DROP columnname;			//deletes column from table "temporarily"
-ex: ALTER TABLE student MODIFY name varchar(20) not null;  //modify schema of table
+ex: ALTER TABLE student MODIFY name varchar(20) not null;	  //modify schema of table
 mysql>ALTER TABLE tablename ADD columnname type(size); 		//add new column to table
+mysql>ALTER TABLE tablename ADD(colname1 type(size) constraint1,colname2 type(size) constraint2);//allow to add multiple...
 ________________________________________________________________________________________________________________________
 ------------------------------drop command on table---------------------------------------------------------------------
 mysql>DROP TABLE tablename;					//delete table temporarily
