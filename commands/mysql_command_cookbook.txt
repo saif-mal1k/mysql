@@ -9,8 +9,28 @@
 3.mysql>REVOKE * ON databasename.* FROM 'newuser'@'myhost.example.com';
 ________________________________________________________________________________________________________________________
 
+-----------------------------viewing all user-------------------------------------------------------------------------
+1.mysql>select user from mysql.user;
+________________________________________________________________________________________________________________________
+
+-----------------------------updating password for a user-------------------------------------------------------------------------
+1.mysql> update mysql.user set password="987654" where user='user1';
+
+warning updated password will be less secure
+EX:
+mysql> select user,host,password from mysql.user;
++----------+-----------+-------------------------------------------+
+| user     | host      | password                                  |
++----------+-----------+-------------------------------------------+
+| root     | localhost | *GSDJ68S67S767SDYF8SFUSDFFSFUI7S87SIUFS9U |
+| sysadmin | %         | *FG625GS35SG3B7X4HND8DJ7F875VN6767CN6R8D8 |
+| user1    | %         | 987654                                    |  <---- I UPDATED FOR THIS USER
++----------+-----------+-------------------------------------------+
+3 rows in set (0.00 sec)
+________________________________________________________________________________________________________________________
+
 -----------------------------login for new user-------------------------------------------------------------------------
-c:programme files\mysql\mysql server 5.0\bin>%mysql -h localhost -u newuser -p 
+c:programme files\mysql\mysql server 5.0\bin>%mysql -h localhost -u username -p 
 							or 
 			""mysql server 5.0\bin>mysql -u username -p""
 mysql> Enter password: yourpassword
